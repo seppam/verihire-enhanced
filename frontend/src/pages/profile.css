@@ -1,0 +1,98 @@
+/* ============================================================
+   PROFILE GLOW UP - FIGMA SYNC 👤
+   ============================================================ */
+.profile-wrapper-final { padding: 80px 0; min-height: 90vh; background: #F8FAFF; }
+.user-card-final, .history-card-final { background: white; padding: 40px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03); border: 1px solid #edf2f7; margin-bottom: 30px; }
+.user-card-final { display: flex; gap: 50px; align-items: flex-start; text-align: left; }
+.avatar-side-final { display: flex; flex-direction: column; align-items: center; gap: 20px; min-width: 220px; }
+.avatar-box-final { width: 150px; height: 150px; background: #EEF2FF; border-radius: 50%; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 4px solid white; box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
+.avatar-img { width: 100%; height: 100%; object-fit: contain; }
+.avatar-picker-grid { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 12px; }
+.avatar-option { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; border: 3px solid transparent; transition: 0.3s; }
+.avatar-option.active { border-color: #1A66FF; background: white !important; }
+.bg1 { background-color: #E0F2F1; } .bg2 { background-color: #E8EAF6; }
+.bg3 { background-color: #F3E5F5; } .bg4 { background-color: #FFF3E0; }
+.bg5 { background-color: #FCE4EC; } .bg6 { background-color: #E1F5FE; }
+.profile-form-side { flex: 1; }
+.user-info-display h1 { font-size: 2.2rem; color: #1E293B; margin-bottom: 5px; }
+.joined-text { color: #64748B; margin-bottom: 20px; }
+.stats-row-final { display: flex; gap: 15px; margin-bottom: 25px; color: #64748B; font-size: 0.9rem; }
+.dot-separator { color: #CBD5E1; }
+.edit-form-final { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.form-group-final { display: flex; flex-direction: column; gap: 8px; }
+.form-group-final label { font-weight: 700; font-size: 0.8rem; color: #475569; text-transform: uppercase; }
+.form-group-final input { padding: 14px; border: 1px solid #E2E8F0; border-radius: 12px; background: #F8FAFF; }
+.action-buttons-final { display: flex; gap: 12px; }
+.btn-primary-final { background: #1A66FF; color: white; border: none; padding: 12px 25px; border-radius: 10px; font-weight: 700; cursor: pointer; }
+.btn-secondary-final { background: #F1F5F9; color: #475569; border: none; padding: 12px 25px; border-radius: 10px; font-weight: 700; cursor: pointer; }
+
+/* History Styles */
+.figma-blue-title { color: #1A66FF !important; font-size: 1.3rem !important; margin-bottom: 20px; font-weight: 800; }
+.table-final.figma-style { width: 100%; border-collapse: collapse; }
+.table-final.figma-style th { text-align: left; padding: 15px; color: #1A66FF !important; border-bottom: 2px solid #F1F5F9; font-size: 0.85rem; }
+.table-final.figma-style td { padding: 15px; border-bottom: 1px solid #F8FAFF; color: #475569; font-size: 0.9rem; }
+.action-flex { display: flex; gap: 8px; }
+.btn-details-blue { background: #1A66FF; color: white; border: none; padding: 6px 15px; border-radius: 4px; font-weight: 600; cursor: pointer; }
+.btn-delete-figma { background: #FF0000; color: white; border: none; padding: 6px 15px; border-radius: 4px; font-weight: 600; cursor: pointer; }
+.res-col.high-risk { color: #EF4444; font-weight: 700; }
+.res-col.legit { color: #22C55E; font-weight: 700; }
+.score-text { font-weight: 800; color: #1E293B; }
+.bold-text { font-weight: 600; color: #1E293B; }
+
+@media (max-width: 768px) { .user-card-final { flex-direction: column; align-items: center; text-align: center; } .edit-form-final { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   ULTIMATE MOBILE RESPONSIVE FIX 📱
+   ============================================================ */
+@media (max-width: 768px) {
+  /* 1. Supaya Container Putih Gak Jebol */
+  .user-card-final, .history-card-final {
+    padding: 20px 15px !important;
+    margin-bottom: 20px;
+    width: 100% !important;
+  }
+
+  /* 2. Supaya Tabel Bisa Digeser (Kunci Utama) */
+  .table-container-final {
+    display: block;
+    width: 100%;
+    overflow-x: auto; /* Munculkan scrollbar horizontal jika penuh */
+    -webkit-overflow-scrolling: touch;
+    border-radius: 8px;
+  }
+
+  .table-final.figma-style {
+    min-width: 600px; /* Paksa lebar minimal tabel biar gak tumpuk-tumpuk teksnya */
+  }
+
+  /* 3. Rapikan Header & Tombol di Mobile */
+  .avatar-side-final {
+    min-width: 100% !important;
+    margin-bottom: 20px;
+  }
+
+  .user-card-final {
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+  }
+
+  .edit-form-final {
+    grid-template-columns: 1fr !important; /* Form jadi 1 kolom di HP */
+  }
+
+  .action-buttons-final {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .btn-primary-final, .btn-secondary-final {
+    width: 100%;
+  }
+
+  .figma-blue-title {
+    font-size: 1.1rem !important;
+    text-align: center;
+  }
+}
