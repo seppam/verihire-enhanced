@@ -17,7 +17,6 @@ app.use(cors({
 }));
 
 // 2. MAYAR WEBHOOK — capture raw body BEFORE express.json() for HMAC verification
-// All other routes come after express.json() below.
 app.post("/api/payment/webhook",
     express.raw({ type: 'application/json', inflate: true }),
     (req, res, next) => {
@@ -46,6 +45,7 @@ app.use("/api/chat", require("./routes/chatRoutes"));
 app.use("/api/stats", require("./routes/statsRoutes"));
 app.use("/api/cv", require("./routes/cvRoutes"));
 app.use("/api/payment", require("./routes/paymentRoutes"));
+app.use("/api/admin", require("./routes/adminRoutes"));
 
 // 404 Handler
 app.use((req, res, next) => {

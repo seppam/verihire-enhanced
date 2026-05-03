@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logoImg from '../assets/logo.png'; 
+import logoImg from '../assets/logo.png';
+import { FaShieldAlt } from 'react-icons/fa';
+import './navbar.css';
 
 const Navbar = ({ user, setUser, language, setLanguage, isLoading }) => {
   const location = useLocation();
@@ -12,7 +14,8 @@ const Navbar = ({ user, setUser, language, setLanguage, isLoading }) => {
     about: "About",
     login: "Login",
     profile: "Profile",
-    logout: "Logout"
+    logout: "Logout",
+    admin: "Admin"
   } : {
     home: "Beranda",
     scanJob: "Scan Job",
@@ -20,7 +23,8 @@ const Navbar = ({ user, setUser, language, setLanguage, isLoading }) => {
     about: "Tentang",
     login: "Masuk",
     profile: "Profil",
-    logout: "Keluar"
+    logout: "Keluar",
+    admin: "Admin"
   };
 
   const handleLogout = () => {
@@ -47,7 +51,6 @@ const Navbar = ({ user, setUser, language, setLanguage, isLoading }) => {
                 <Link to="/scan">{t.scanJob}</Link>
               </li>
 
-              {/* ✅ HANYA MUNCUL JIKA USER LOGIN */}
               {!isLoading && user && (
                 <li className={location.pathname === '/scan-cv' ? 'active' : ''}>
                   <Link to="/scan-cv">{t.scanCV}</Link>
@@ -57,6 +60,16 @@ const Navbar = ({ user, setUser, language, setLanguage, isLoading }) => {
               <li className={location.pathname === '/about' ? 'active' : ''}>
                 <Link to="/about">{t.about}</Link>
               </li>
+
+              {/* Admin Dashboard — only visible to admin users */}
+              {!isLoading && user && user.role === 'admin' && (
+                <li className={`admin-nav-item ${location.pathname === '/admin' ? 'active' : ''}`}>
+                  <Link to="/admin">
+                    <FaShieldAlt style={{ marginRight: 4 }} />
+                    {t.admin}
+                  </Link>
+                </li>
+              )}
             </ul>
 
             <div className="nav-lang-final">
@@ -66,7 +79,7 @@ const Navbar = ({ user, setUser, language, setLanguage, isLoading }) => {
 
             <div className="nav-auth-final">
               {isLoading ? (
-                <div style={{ width: '80px' }}></div> // Spacer to prevent jump
+                <div style={{ width: '80px' }}></div>
               ) : user ? (
                 <div className="auth-flex-final">
                   <Link to="/profile" className="btn-blue-final">{t.profile}</Link>
